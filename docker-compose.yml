@@ -1,0 +1,21 @@
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./templates:/etc/nginx/templates
+      - ./page1:/html
+    ports:
+      - '8081:80'
+  web2:
+    image: nginx
+    volumes:
+      - ./templates:/etc/nginx/templates
+      - ./page2:/html
+    ports:
+      - '8082:80'
+  proxy:  
+    image: nginx
+    volumes:
+      - ./proxy:/etc/nginx/templates
+    ports:
+      - '80:80'
